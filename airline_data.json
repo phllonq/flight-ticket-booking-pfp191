@@ -1,24 +1,108 @@
 {
-    "flights": [
-        {
-            "flight_code": "VN101",
-            "departure": "Ho Chi Minh",
-            "destination": "Ha Noi",
-            "schedule": {
-                "date": "2025-11-20",
-                "start_time": "08:00",
-                "end_time": "10:00"
-            },
-            "available_seats": 50
-        }
-    ],
-    "bookings": [
-        {
-            "name": "Tran Phi Long",
-            "seat_class": "Economy",
-            "no_of_seats": 2,
-            "booking_id": "VN1012_345",
-            "status": "confirmed"
-        }
-    ]
+  "flights": [
+    {
+      "flight_code": "VN101",
+      "departure": "Hanoi",
+      "destination": "Ho Chi Minh City",
+      "date": "2026-02-22",
+      "start_time": "10:00",
+      "end_time": "13:00"
+    },
+    {
+      "flight_code": "VN102",
+      "departure": "Hanoi",
+      "destination": "Da Nang",
+      "date": "2026-02-23",
+      "start_time": "09:00",
+      "end_time": "10:30"
+    },
+    {
+      "flight_code": "VN103",
+      "departure": "Hanoi",
+      "destination": "Hue",
+      "date": "2026-02-24",
+      "start_time": "14:00",
+      "end_time": "15:20"
+    },
+    {
+      "flight_code": "VN201",
+      "departure": "Ho Chi Minh City",
+      "destination": "Hanoi",
+      "date": "2026-03-01",
+      "start_time": "08:00",
+      "end_time": "10:00"
+    },
+    {
+      "flight_code": "VN202",
+      "departure": "Ho Chi Minh City",
+      "destination": "Da Nang",
+      "date": "2026-03-02",
+      "start_time": "11:30",
+      "end_time": "12:50"
+    },
+    {
+      "flight_code": "VN203",
+      "departure": "Ho Chi Minh City",
+      "destination": "Nha Trang",
+      "date": "2026-03-03",
+      "start_time": "16:00",
+      "end_time": "17:10"
+    },
+    {
+      "flight_code": "VN301",
+      "departure": "Da Nang",
+      "destination": "Hanoi",
+      "date": "2026-03-05",
+      "start_time": "07:30",
+      "end_time": "09:00"
+    },
+    {
+      "flight_code": "VN302",
+      "departure": "Da Nang",
+      "destination": "Ho Chi Minh City",
+      "date": "2026-03-06",
+      "start_time": "13:00",
+      "end_time": "14:30"
+    },
+    {
+      "flight_code": "VN303",
+      "departure": "Da Nang",
+      "destination": "Phu Quoc",
+      "date": "2026-03-07",
+      "start_time": "18:00",
+      "end_time": "19:45"
+    },
+    {
+      "flight_code": "VN401",
+      "departure": "Can Tho",
+      "destination": "Hanoi",
+      "date": "2026-03-10",
+      "start_time": "06:45",
+      "end_time": "09:30"
+    },
+    {
+      "flight_code": "VN402",
+      "departure": "Can Tho",
+      "destination": "Ho Chi Minh City",
+      "date": "2026-03-11",
+      "start_time": "15:00",
+      "end_time": "16:00"
+    },
+    {
+      "flight_code": "VN501",
+      "departure": "Hue",
+      "destination": "Ho Chi Minh City",
+      "date": "2026-03-15",
+      "start_time": "12:30",
+      "end_time": "14:00"
+    },
+    {
+      "flight_code": "VN502",
+      "departure": "Hue",
+      "destination": "Hanoi",
+      "date": "2026-03-16",
+      "start_time": "17:30",
+      "end_time": "18:45"
+    }
+  ]
 }
