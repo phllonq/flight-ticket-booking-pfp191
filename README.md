@@ -1,8 +1,11 @@
 Flight Ticket Booking Management System
 
 Course: PFP191 
+
 Class: AI2003
+
 Lecturer: Trần Công Mua
+
 Group: 6
 
 1. Project Overview
