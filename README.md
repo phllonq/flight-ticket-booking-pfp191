@@ -97,14 +97,23 @@ Handle file errors and invalid formats
 flight-ticket-booking-pfp191/
 │
 ├── README.md
+
 ├── airline_data.json
+
 └── src/
+
 ├── init.py
+
 ├── Flight.py
+
 ├── FlightSchedule.py
+
 ├── Booking.py
+
 ├── AirlineSystem.py
+
 └── Main.py
+
 
 File Description
 
