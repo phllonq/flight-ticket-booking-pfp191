@@ -1,5 +1,34 @@
 import random
-class Booking:
+import json 
+
+def load_data(self):
+    try:
+        with open('airline_data.json', 'r') as f:
+            data = json.load(f)
+
+        self.__flight_list = []
+        for f_data in data.get('flights', []):
+            schedule = FlightSchedule(
+                f_data['date'],
+                f_data['start_time'],
+                f_data['end_time']
+            )
+            flight = Flight(
+                f_data['flight_code'],
+                f_data['departure'],
+                f_data['destination'],
+                schedule
+            )
+            self.__flight_list.append(flight)
+
+        print('Load data successfully!')
+
+    except FileNotFoundError:
+        print('Data file not found.')
+    except json.JSONDecodeError:
+        print('Invalid data format.')
+
+class Booking: 
     def __init__(self, name, seat_class, no_of_seats):
         self.__name = name
         self.__seat_class = seat_class
@@ -201,9 +230,9 @@ class AirlineSystem:
                 elif action == 5:
                     self.view_bookings()
                 elif action == 6:
-                    pass
+                    self.save_data()
                 elif action == 7:
-                    pass
+                    self.load_data()
                 else:
                     print(" 1.View flights information	        5.View booking list\n"
               " 2.Add new flight			6.Save\n"

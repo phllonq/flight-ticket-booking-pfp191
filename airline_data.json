@@ -1,0 +1,24 @@
+{
+    "flights": [
+        {
+            "flight_code": "VN101",
+            "departure": "Ho Chi Minh",
+            "destination": "Ha Noi",
+            "schedule": {
+                "date": "2025-11-20",
+                "start_time": "08:00",
+                "end_time": "10:00"
+            },
+            "available_seats": 50
+        }
+    ],
+    "bookings": [
+        {
+            "name": "Tran Phi Long",
+            "seat_class": "Economy",
+            "no_of_seats": 2,
+            "booking_id": "VN1012_345",
+            "status": "confirmed"
+        }
+    ]
+}
