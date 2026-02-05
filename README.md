@@ -95,16 +95,16 @@ Handle file errors and invalid formats
 
 4. Project Structure
 flight-ticket-booking-pfp191/
-│
-├── README.md
-├── airline_data.json
-└── src/
-    ├── __init__.py
-    ├── Flight.py
-    ├── FlightSchedule.py
-    ├── Booking.py
-    ├── AirlineSystem.py
-    └── Main.py
+│ 
+├── README.md 
+├── airline_data.json 
+└── src/ 
+    ├── __init__.py 
+    ├── Flight.py 
+    ├── FlightSchedule.py 
+    ├── Booking.py 
+    ├── AirlineSystem.py 
+    └── Main.py 
 
 File Description
 
