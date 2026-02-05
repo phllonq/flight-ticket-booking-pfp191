@@ -95,7 +95,9 @@ Handle file errors and invalid formats
 
 4. Project Structure
 flight-ticket-booking-pfp191/
+
 │
+
 ├── README.md
 
 ├── airline_data.json
