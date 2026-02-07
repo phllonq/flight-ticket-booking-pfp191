@@ -6,15 +6,6 @@ class Booking:
         self.__no_of_seats = no_of_seats
         self.__booking_id = ""
         self.__status = "confirmed"
-        self.__check = False
-    def get_check(self):
-        return self.__check
-    def set_check(self):
-        if self.__check == False:
-            self.__check = True
-        else:
-            self.__check = False
-        return self.__check
     def get_name(self):
         return self.__name
     def set_name(self, name):
@@ -50,6 +41,12 @@ class Flight:
         self.__schedule = schedule
         self.__book_list = []
         self.__available_seats = 50
+        self.__economy_seats = 25
+        self.__business_seats = 25
+    def get_economy_seats(self):
+        return self.__economy_seats
+    def get_business_seats(self):
+        return self.__business_seats
     def get_flight_code(self):
         return self.__flight_code
     def get_departure(self):
@@ -63,18 +60,25 @@ class Flight:
     def add_book_list(self,ticket):
         self.__book_list.append(ticket)
     def calculate_available_seats(self):
+        self.__available_seats = 50
+        self.__economy_seats = 25
+        self.__business_seats = 25
         for ticket in self.__book_list:
-            if ticket.get_status() == "confirmed" and not ticket.get_check():
+            if ticket.get_status() == "confirmed":
                 self.__available_seats-= ticket.get_no_of_seats()
-            elif ticket.get_status() == "cancelled" and ticket.get_check():
-                self.__available_seats+= ticket.get_no_of_seats()
-        return self.__available_seats
+            if ticket.get_seat_class() == "economy" and ticket.get_status() == "confirmed":
+                self.__economy_seats-= ticket.get_no_of_seats()
+            elif ticket.get_seat_class() == "business" and ticket.get_status() == "confirmed":
+                self.__business_seats-= ticket.get_no_of_seats()
+        return self.__available_seats, self.__economy_seats, self.__business_seats
     def __str__(self):
         return ("Flight Code: " + self.__flight_code
         + "\nDeparture: " + self.__departure
         + "\nDestination: " + self.__destination
         + "\n"+str(self.__schedule)
-        + "\nAvailable Seats: " + str(self.__available_seats))
+        + "\nAvailable Seats: " + str(self.__available_seats)
+        + "\nEconomy seats: " + str(self.get_economy_seats())
+        + "\nBusiness seats: " + str(self.get_business_seats()))
 class FlightSchedule:
     def __init__(self, date, start_time, end_time):
         self.__date = date
@@ -115,22 +119,28 @@ class AirlineSystem:
         if not found:
             print("Flight not found!")
     def add_booking(self):
-        choice = input("Enter Your flight code: ")
+        choice = input("Enter Your flight code: ").upper()
         found = False
         for flight in self.__flight_list:
             if flight.get_flight_code() == choice:
                 found = True
                 name = input("Enter your name: ")
-                seat_class = input("Enter your seat class: ")
+                seat_class = input("Enter your seat class (Economy or Business): ").lower()
                 no_of_seats = int(input("Enter number of seats you want to book: "))
-                if no_of_seats <= flight.get_available_seats():
-                    ticket = Booking(name,seat_class,no_of_seats)
-                    ticket.set_booking_id(flight.get_flight_code()+str(ticket.get_no_of_seats())+str(random.randint(1,1000)))
-                    self.__booking_list.append(ticket)
-                    flight.add_book_list(ticket)
-                    flight.calculate_available_seats()
-                    ticket.set_check()
-                    print("Book successfully! Check your booking id at 'View booking list'")
+                if seat_class != "economy" and seat_class != "business":
+                    print("Seat class not exist!")
+                elif no_of_seats <= flight.get_available_seats():
+                    if no_of_seats > flight.get_economy_seats():
+                        print("Not enough Economy seats!")
+                    elif no_of_seats > flight.get_business_seats():
+                        print("Not enough Business seats!")
+                    else:
+                        ticket = Booking(name,seat_class,no_of_seats)
+                        ticket.set_booking_id(flight.get_flight_code()+str(ticket.get_no_of_seats())+str(random.randint(1,1000)))
+                        self.__booking_list.append(ticket)
+                        flight.add_book_list(ticket)
+                        flight.calculate_available_seats()
+                        print("Book successfully! Check your booking id at 'View booking list'")
                 else:
                     print("Flight code",flight.get_flight_code(),"only has",flight.get_available_seats(),"seat(s) left, Please try again!")
                 break
@@ -145,7 +155,6 @@ class AirlineSystem:
                 ticket.cancel_booking()
                 for flight in self.__flight_list:
                     flight.calculate_available_seats()
-                ticket.set_check()
                 print("Cancel successfully!")
                 break
         if not found:
@@ -201,9 +210,9 @@ class AirlineSystem:
                 elif action == 5:
                     self.view_bookings()
                 elif action == 6:
-                    pass
+                    self.save_data()
                 elif action == 7:
-                    pass
+                    self.load_data()
                 else:
                     print(" 1.View flights information	        5.View booking list\n"
               " 2.Add new flight			6.Save\n"
