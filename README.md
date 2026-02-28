@@ -1,6 +1,6 @@
 Flight Ticket Booking Management System
 
-Course: PFP191 
+Course: PFP191
 
 Class: AI2003
 
@@ -26,7 +26,7 @@ Exception handling
 Menu-driven program control
 
 2. Team Members & Responsibilities
-Trần Phi Long - SE201868 (60%)
+   Trần Phi Long - SE201868 (60%)
 
 Design overall system architecture
 
@@ -53,7 +53,7 @@ Perform system testing and validation
 Write Algorithm Design, Testing, and Experimental Results sections
 
 3. System Features
-Flight Management
+   Flight Management
 
 Add new flights
 
@@ -94,9 +94,7 @@ Load system data when the program starts
 Handle file errors and invalid formats
 
 4. Project Structure
-5. 
-flight-ticket-booking-pfp191/
-
+5. flight-ticket-booking-pfp191/
 
 │
 
@@ -106,18 +104,17 @@ flight-ticket-booking-pfp191/
 
 └── src/
 
-  ├── init.py
+├── init.py
 
-  ├── Flight.py
+├── Flight.py
 
-  ├── FlightSchedule.py
+├── FlightSchedule.py
 
-  ├── Booking.py
+├── Booking.py
 
-  ├── AirlineSystem.py
+├── AirlineSystem.py
 
-  └── Main.py
-
+└── Main.py
 
 File Description
 
@@ -147,11 +144,9 @@ Clone the repository:
 
 git clone https://github.com/phllonq/flight-ticket-booking-pfp191.git
 
-
 Navigate to the project directory:
 
 cd flight-ticket-booking-pfp191
-
 
 Run the program:
 
