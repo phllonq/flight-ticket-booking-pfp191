@@ -5,15 +5,6 @@ class Booking:
         self.__no_of_seats = no_of_seats
         self.__booking_id = ""
         self.__status = "confirmed"
-        self.__check = False
-    def get_check(self):
-        return self.__check
-    def set_check(self):
-        if self.__check == False:
-            self.__check = True
-        else:
-            self.__check = False
-        return self.__check
     def get_name(self):
         return self.__name
     def set_name(self, name):
